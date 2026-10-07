@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090807;
+  border-left: 1px solid rgba(234, 88, 12, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2410c;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.7);
+}
+
+/* Retro CRT and Screen scanlines */
+.crt-overlay {
+  background: linear-gradient(rgba(18, 16, 14, 0) 50%,
+      rgba(0, 0, 0, 0.5) 50%);
+  background-size: 100% 4px;
+}
+
+.crt-vignette {
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(5, 4, 3, 0.85) 100%);
+}
+
+/* Perspective Cyber Grid */
+.retro-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(234, 88, 12, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(234, 88, 12, 0.12) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Animated radar beam across background */
+@keyframes radarSweepVertical {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.animate-radar-sweep-v {
+  animation: radarSweepVertical 7s linear infinite;
+}
+
+/* Corner bracket decorative frame */
+.corner-bracket-box {
+  position: relative;
+}
+
+.corner-bracket-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #f97316;
+  border-left: 2px solid #f97316;
+  pointer-events: none;
+}
+
+.corner-bracket-box::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #f97316;
+  border-right: 2px solid #f97316;
+  pointer-events: none;
+}
+
+/* Glowing text drop shadow */
+.text-retro-glow {
+  text-shadow: 0 0 14px rgba(249, 115, 22, 0.5), 0 0 30px rgba(234, 88, 12, 0.25);
+}
+
+.box-retro-glow {
+  box-shadow: 0 0 20px rgba(234, 88, 12, 0.15), inset 0 0 15px rgba(234, 88, 12, 0.05);
+}
+
+.box-retro-glow-active {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.35), inset 0 0 20px rgba(249, 115, 22, 0.1);
+}
